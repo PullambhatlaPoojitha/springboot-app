@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h3>Welcome, Admin!</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Department ID</th>
+            <th>Download PDF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="result : ${results}">
+            <td th:text="${result.departmentId}"></td>
+            <td><a th:href="@{'/download-pdf/' + ${result.departmentId}}" target="_blank">Download PDF</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
